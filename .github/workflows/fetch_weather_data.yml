@@ -33,5 +33,6 @@ jobs:
         message: 'Update weather data'
         author_name: 'GitHub Actions'
         author_email: 'actions@github.com'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+env:
+  GITHUB_TOKEN: ${{ secrets.PAT_GITHUB }}
+
