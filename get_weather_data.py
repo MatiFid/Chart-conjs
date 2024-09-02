@@ -3,7 +3,7 @@ import json
 
 def fetch_weather_data():
     # URL de la API de clima, asegúrate de reemplazar con la URL correcta y tu API key si es necesario
-    api_url = "https://api.openweathermap.org/data/2.5/weather?q=villamaria&appid=7e26cca1376644e2b31b05ced59ae83c&units=metric"
+    api_url = "https://api.openweathermap.org/data/2.5/weather?q=villa-maria&appid=7e26cca1376644e2b31b05ced59ae83c&units=metric"
 
     response = requests.get(api_url)
     data = response.json()
