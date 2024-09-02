@@ -1,0 +1,28 @@
+import requests
+import json
+
+# Tu clave API de Weatherbit
+api_key = '7e26cca1376644e2b31b05ced59ae83c'
+# Ciudad o coordenadas para la consulta
+city = '-32.4075, -63.2406'
+# URL para la API de Weatherbit
+url = f'https://api.weatherbit.io/v2.0/current?city={city}&key={api_key}'
+
+response = requests.get(url)
+data = response.json()
+
+# Extraer los datos necesarios
+weather_data = {
+    'temperature': data['data'][0]['temp'],
+    'humidity': data['data'][0]['rh'],
+    'pressure': data['data'][0]['pres'],
+    'wind_speed': data['data'][0]['wind_spd'],
+    'apparent_temperature': data['data'][0]['app_temp'],
+    'cloud_coverage': data['data'][0]['clouds'],
+    'air_quality': data['data'][0].get('aqi', 'N/A'),  # Quality of air index may not be available in all endpoints
+    'uv_index': data['data'][0].get('uv', 'N/A')  # UV index may not be available in all endpoints
+}
+
+# Guardar los datos en un archivo JSON
+with open('weather_data.json', 'w') as file:
+    json.dump(weather_data, file, indent=4)
