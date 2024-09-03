@@ -3,7 +3,7 @@ import json
 import os
 
 def fetch_weather_data():
-    api_key = os.getenv('WEATHER_API_KEY')
+    api_key = os.getenv('7e26cca1376644e2b31b05ced59ae83c')
     city = '-32.4075, -63.2406'
     url = f'https://api.weatherbit.io/v2.0/current?city={city}&key={api_key}'
 
