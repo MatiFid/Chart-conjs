@@ -3,7 +3,7 @@ import json
 import os
 
 def fetch_weather_data():
-    api_key = "7e26cca1376644e2b31b05ced59ae83c"
+    api_key = "0f23a65784464b74b8716754acddc53f"
     city = "Villa Maria"
     
     weather_url = f"https://api.weatherbit.io/v2.0/current?city={city}&key={api_key}&units=M"
