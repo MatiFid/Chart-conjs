@@ -4,10 +4,11 @@ import os
 
 def fetch_weather_data():
     api_key = "0f23a65784464b74b8716754acddc53f"
-    city = "Villa Maria"
+    lat = "32.4072"  # Latitud de Villa Maria, por ejemplo
+    lon = "-63.2403"  # Longitud de Villa Maria, por ejemplo
     
-    weather_url = f"https://api.weatherbit.io/v2.0/current?city={city}&key={api_key}&units=M"
-    air_quality_url = f"https://api.weatherbit.io/v2.0/airquality?city={city}&key={api_key}"
+    weather_url = f"https://api.weatherbit.io/v2.0/current?lat={lat}&lon={lon}&key={api_key}&units=M"
+    air_quality_url = f"https://api.weatherbit.io/v2.0/airquality?lat={lat}&lon={lon}&key={api_key}"
 
     try:
         weather_response = requests.get(weather_url)
