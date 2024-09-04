@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 def fetch_weather_data():
     api_key = "7e26cca1376644e2b31b05ced59ae83c"
@@ -10,8 +11,9 @@ def fetch_weather_data():
 
     try:
         weather_response = requests.get(weather_url)
-        weather_response.raise_for_status()  # Lanza un error si la solicitud no tiene éxito
+        weather_response.raise_for_status()
         weather_data = weather_response.json()
+        print("Datos meteorológicos obtenidos con éxito.")
     except requests.exceptions.HTTPError as err:
         print(f"HTTP error occurred during weather data request: {err}")
         return
@@ -21,8 +23,9 @@ def fetch_weather_data():
 
     try:
         air_quality_response = requests.get(air_quality_url)
-        air_quality_response.raise_for_status()  # Lanza un error si la solicitud no tiene éxito
+        air_quality_response.raise_for_status()
         air_quality_data = air_quality_response.json()
+        print("Datos de calidad del aire obtenidos con éxito.")
     except requests.exceptions.HTTPError as err:
         print(f"HTTP error occurred during air quality data request: {err}")
         return
@@ -51,8 +54,15 @@ def fetch_weather_data():
         "uv_index": current_weather.get('uv', 'N/A')
     }
 
+    # Eliminar el archivo existente si es necesario
+    if os.path.exists('weather_data.json'):
+        os.remove('weather_data.json')
+        print("Archivo JSON anterior eliminado.")
+
+    # Guardar los datos en el archivo JSON
     with open('weather_data.json', 'w') as json_file:
         json.dump(combined_data, json_file, indent=4)
+        print("Datos meteorológicos guardados exitosamente en weather_data.json.")
 
 if __name__ == "__main__":
     fetch_weather_data()
