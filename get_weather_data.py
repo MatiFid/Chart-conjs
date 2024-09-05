@@ -3,7 +3,7 @@ import json
 import os
 
 def fetch_weather_data():
-    api_key = "0f23a65784464b74b8716754acddc53f"
+    api_key = "cc695bc08d3a4ff186dc02d18216540e"
     lat = "32.4072"  # Latitud de Villa Maria, por ejemplo
     lon = "-63.2403"  # Longitud de Villa Maria, por ejemplo
     
