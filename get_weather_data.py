@@ -37,6 +37,7 @@ def fetch_weather_data():
     current_weather = weather_data['data'][0]
     current_air_quality = air_quality_data['data'][0]
 
+    # Comprobamos si las claves de calidad del aire están presentes antes de acceder a ellas
     combined_data = {
         "temperature": current_weather['temp'],
         "humidity": current_weather['rh'],
@@ -45,12 +46,12 @@ def fetch_weather_data():
         "apparent_temperature": current_weather['app_temp'],
         "cloud_coverage": current_weather['clouds'],
         "air_quality": {
-            "pm10": current_air_quality['pm10'],
-            "pm2_5": current_air_quality['pm2_5'],
-            "o3": current_air_quality['o3'],
-            "no2": current_air_quality['no2'],
-            "so2": current_air_quality['so2'],
-            "co": current_air_quality['co'],
+            "pm10": current_air_quality.get('pm10', 'N/A'),
+            "pm2_5": current_air_quality.get('pm2_5', 'N/A'),
+            "o3": current_air_quality.get('o3', 'N/A'),
+            "no2": current_air_quality.get('no2', 'N/A'),
+            "so2": current_air_quality.get('so2', 'N/A'),
+            "co": current_air_quality.get('co', 'N/A'),
         },
         "uv_index": current_weather.get('uv', 'N/A')
     }
