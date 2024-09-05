@@ -8,7 +8,7 @@ def fetch_weather_data():
     lon = "-63.2403"  # Longitud de Villa Maria, por ejemplo
     
     # URL que incluye tanto los datos meteorológicos como la calidad del aire
-    weather_url = f"https://api.weatherbit.io/v2.0/current?lat={lat}&lon={lon}&key={api_key}&units=M&include=air_quality"
+    weather_url = f"https://api.weatherbit.io/v2.0/current?lat={lat}&lon={lon}&key={api_key}&units=M"
 
     try:
         # Obtener los datos meteorológicos y de calidad del aire en una sola solicitud
